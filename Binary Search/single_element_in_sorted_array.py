@@ -9,6 +9,7 @@ class Solution:
 
     #     return ans
 
+    # using binary search => tc = o(log(n))
     def singleNonDuplicate(self,nums):
         n = len(nums)
 
