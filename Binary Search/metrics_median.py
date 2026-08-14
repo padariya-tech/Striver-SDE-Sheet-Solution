@@ -37,7 +37,8 @@ class Median:
     #     # space complexity = O(rows)
 
     # using binary search
-    def count_right_bicection(self,col,val): # o(log(len(col))))
+    # first elemetnt > val is upper bound
+    def upper_bound(self,col,val): # o(log(len(col)))) 
         n = len(col)
 
         low = 0
@@ -75,7 +76,7 @@ class Median:
             # print(low, high, mid)
             count = 0
             for i in range(rows):
-                count += self.count_right_bicection(mat[i], mid)
+                count += self.upper_bound(mat[i], mid)
                 
             # print(count , mid)
             # [ number of elements <= mid ] >= median
