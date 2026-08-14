@@ -96,6 +96,9 @@ if __name__ == "__main__":
         [2,6,9],
         [3,6,9]
     ]
+    # Find the smallest value x such that:
+    # count(elements <= x) >= (rows * cols + 1) / 2
+
     find_median = Median()
     ans = find_median.median(mat)
     print(ans)
