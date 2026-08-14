@@ -4,6 +4,23 @@ class Solution:
         m = len(nums2)
         total = n + m
         # half = (total + 1) // 2
+        # 0 <= i <= n
+        # 0 <= j <= m
+
+        # Then:
+        # 0 <= k - i <= m
+
+        # gives:
+        # k - m <= i <= k
+
+        # and combining with:
+        # 0 <= i <= n
+
+        # we get:
+        # max(0, k - m) <= i <= min(k, n)
+
+        # Therefore:
+
         l = max(0, k - m)
         r = min(k, n)
 

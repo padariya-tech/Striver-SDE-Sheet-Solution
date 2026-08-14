@@ -42,15 +42,16 @@ class Median:
 
         low = 0
         high =  n - 1 
-
+        ans = n
         while low <= high:
             mid = (low + high) // 2
-            if col[mid] <= val:
-                low = mid + 1
-            else:
+            if col[mid] > val:
+                ans = mid
                 high = mid - 1
+            else:
+                low = mid + 1
 
-        return low
+        return ans
     def median(self, mat):
         rows = len(mat)
         cols = len(mat[0])
@@ -65,9 +66,10 @@ class Median:
         # print(min_element, max_element,0,0)
         low = min_element
         high = max_element
-
-        median = (rows * cols + 1) // 2
+        # answer = 0
+        k = (rows * cols + 1) // 2
         # median = median - 1
+        # first value where count(<= x) >= k is the median.
         while low <= high:  # tc = O(log(max_element - min_element) * rows * log(cols))
             mid = (low + high) // 2
             # print(low, high, mid)
@@ -76,21 +78,23 @@ class Median:
                 count += self.count_right_bicection(mat[i], mid)
                 
             # print(count , mid)
-            if count < median:
+            # [ number of elements <= mid ] >= median
+            # first value satisfying a condition
+            if count < k:
+                # answer = mid
                 low = mid + 1
             else:
+                answer = mid
                 high = mid - 1
 
-        return low
+        return answer
 
 
 if __name__ == "__main__":
     mat = [
-        [1,1,1],
-        [2,2,2],
-        [3,3,3],
-        [1,2,3],
-        [4,5,6]
+        [1,3,5],
+        [2,6,9],
+        [3,6,9]
     ]
     find_median = Median()
     ans = find_median.median(mat)
