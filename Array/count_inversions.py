@@ -5,7 +5,7 @@ class Solution:
         ans = []
         result = 0
         j = mid
-        while i < mid and j <= end:
+        while i <= mid and j <= end:
             if nums[i] <= nums[j]:
                 ans.append(nums[i])
                 i += 1
@@ -32,7 +32,7 @@ class Solution:
             mid = (i + j) // 2
             ans += self.mergeSort(i,mid,nums)
             ans += self.mergeSort(mid+1,j,nums)
-            ans += self.mergeAlgo(i,mid+1,j,nums)
+            ans += self.mergeAlgo(i,mid,j,nums)
 
         return ans
 
