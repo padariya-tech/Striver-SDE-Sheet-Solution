@@ -40,7 +40,7 @@ class Solution:
             u = edges[0]
             v = edges[1]
 
-            if vis[u][v] == 1:
+            if vis[u][v] == 1: # condition if edges are repeated
                 ans.append(cnt)
                 continue
 
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     n = 5
     m = 5
-    operators= [[1,1],[0,1],[3,3],[3,4]]
+    operators= [[1,1],[0,1],[3,3],[3,4],[2,2],[3,1],[4,0],[3,2],[3,0]]
     sol = Solution()
     answer = sol.numOfIslands(n,m,operators)
     print(answer)

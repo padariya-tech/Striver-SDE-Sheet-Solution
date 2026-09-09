@@ -1,6 +1,10 @@
 # used to check if two elements belong to same set or not and also used to union two sets
 # used where graph is changing dynamically and we want to check if two nodes are connected or not
-# find parent of a node and union two nodes 
+# # find parent of a node and union two nodes 
+# Union → easy ✅
+# Find → easy ✅
+# Delete edge / split component → not directly supported ❌
+# Handle deletions by processing backwards → often possible ✅
 class DisjointSet:
     
     def __init__(self,n):
