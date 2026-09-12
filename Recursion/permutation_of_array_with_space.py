@@ -1,5 +1,5 @@
 class Solution:
-    def subset_sum(self,i,temp,arr,ans,used):
+    def permutation(self,i,temp,arr,ans,used):
         if len(temp) == len(arr):
             ans.append(temp.copy())
             return
@@ -11,7 +11,7 @@ class Solution:
             used[j] = True
             temp.append(arr[j])
 
-            self.subset_sum(j+1,temp,arr,ans,used)
+            self.permutation(j+1,temp,arr,ans,used)
             
             used[j] = False
             temp.pop()
@@ -25,6 +25,6 @@ if __name__ == "__main__":
     sol = Solution()
     used = [0] * len(arr)
     # for i in range(len(arr)):
-    sol.subset_sum(0,[],arr,ans,used)
+    sol.permutation(0,[],arr,ans,used)
     # ans = sorted(ans)
     print(ans)
