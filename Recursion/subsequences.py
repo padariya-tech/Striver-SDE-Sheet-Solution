@@ -27,17 +27,23 @@ subsequences(0, [], str, len(arr))
 print(sorted(ans))
 
 
-## common pattern for this type of problem
+# def subsequences(start, temp, arr):
 
-# f(ind , [])
-# {
-#     if ind >= n :
-#     print([])
-#     return
+#     # Every point is a valid subsequence
+#     print(temp)
 
-#     [].add(arr[i])
-#     f(ind+1,[])
-#     [].remove(arr[i])
-#     f(ind+1,[])
-#     return
-# }
+#     for i in range(start, len(arr)):
+
+#         # TAKE
+#         temp.append(arr[i])
+
+#         # Move forward
+#         subsequences(i + 1, temp, arr)
+
+#         # UNDO TAKE
+#         temp.pop()
+
+
+# arr = [1, 2, 3]
+
+# subsequences(0, [], arr)
