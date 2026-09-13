@@ -1,5 +1,5 @@
 class Solution:
-    def permutation(self,i,temp,arr,ans,used):
+    def permutation(self,temp,arr,ans,used):
         if len(temp) == len(arr):
             ans.append(temp.copy())
             return
@@ -11,7 +11,7 @@ class Solution:
             used[j] = True
             temp.append(arr[j])
 
-            self.permutation(j+1,temp,arr,ans,used)
+            self.permutation(temp,arr,ans,used)
             
             used[j] = False
             temp.pop()
@@ -21,10 +21,10 @@ class Solution:
 if __name__ == "__main__":
 
     ans = []
-    arr = [1,2,3]
+    arr = [1,3,2]
     sol = Solution()
     used = [0] * len(arr)
     # for i in range(len(arr)):
-    sol.permutation(0,[],arr,ans,used)
+    sol.permutation([],arr,ans,used)
     # ans = sorted(ans)
     print(ans)

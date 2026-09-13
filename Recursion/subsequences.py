@@ -1,49 +1,52 @@
-ans = []
+# ans = []
 
-def subsequences(i, temp, arr, n):
+# def subsequences(i, temp, arr, n):
 
-    if i >= n:
-        # print(temp)
-        ans.append(temp.copy())
-        return
+#     if i >= n:
+#         # print(temp)
+#         ans.append(temp.copy())
+#         return
 
-    # Take
-    temp.append(arr[i])
-    subsequences(i + 1, temp, arr, n)
+#     # Take
+#     temp.append(arr[i])
+#     subsequences(i + 1, temp, arr, n)
 
-    # Not take
-    temp.pop()
-    subsequences(i + 1, temp, arr, n)
-
-
-arr = [3, 1, 2]
-
-subsequences(0, [], arr, len(arr))
-
-print(sorted(ans))
-ans = []
-str = "nij"
-subsequences(0, [], str, len(arr))
-print(sorted(ans))
+#     # Not take
+#     temp.pop()
+#     subsequences(i + 1, temp, arr, n)
 
 
-# def subsequences(start, temp, arr):
+# arr = [3, 1, 2]
 
-#     # Every point is a valid subsequence
-#     print(temp)
+# subsequences(0, [], arr, len(arr))
 
-#     for i in range(start, len(arr)):
-
-#         # TAKE
-#         temp.append(arr[i])
-
-#         # Move forward
-#         subsequences(i + 1, temp, arr)
-
-#         # UNDO TAKE
-#         temp.pop()
+# print(sorted(ans))
+# ans = []
+# str = "nij"
+# subsequences(0, [], str, len(arr))
+# print(sorted(ans))
 
 
-# arr = [1, 2, 3]
+def subsequences(start, temp, arr):
 
-# subsequences(0, [], arr)
+    # Every point is a valid subsequence
+    # if start == len(arr):
+    #     print(temp)
+    #     return
+    print(temp)
+
+    for i in range(start, len(arr)):
+
+        # TAKE
+        temp.append(arr[i])
+
+        # Move forward
+        subsequences(i + 1, temp, arr)
+
+        # UNDO TAKE
+        temp.pop()
+
+
+arr = [1, 2, 3]
+
+subsequences(0, [], arr)
