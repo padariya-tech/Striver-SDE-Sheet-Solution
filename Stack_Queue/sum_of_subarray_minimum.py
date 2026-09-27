@@ -14,7 +14,7 @@ class Solution:
                 while st and arr[st[-1]] > arr[i]:
                     st.pop()
                 if st:
-                    ans[i] = arr[st[-1]]
+                    ans[i] = st[-1]
 
             st.append(i)
         
@@ -25,7 +25,7 @@ class Solution:
         n = len(arr)
         ans = [n] * n
         st.append(n-1)
-        for i in range(n-1,-1,-1):
+        for i in range(n-2,-1,-1):
 
             if arr[i] > arr[st[-1]]:
                 ans[i] = arr[st[-1]]
@@ -35,7 +35,7 @@ class Solution:
                 while st and arr[st[-1]] >= arr[i]:
                     st.pop()
                 if st:
-                    ans[i] = arr[st[-1]]
+                    ans[i] = st[-1]
 
             st.append(i)
         
