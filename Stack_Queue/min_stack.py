@@ -52,3 +52,21 @@ class MinStack:
             return None
 
         return self.min_val
+    
+if __name__ == "__main__":
+
+    
+    sol = MinStack()
+    sol.push(11)
+    sol.push(12)
+    sol.push(13)
+    sol.push(4)
+    sol.push(5)
+
+    print(sol.pop())
+    print(sol.top())
+    print(sol.getMin())
+
+    print(sol.pop())
+    print(sol.top())
+    print(sol.getMin())

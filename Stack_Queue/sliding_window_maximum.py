@@ -1,6 +1,9 @@
 from collections import deque
 class Solution:
     def sliding_window_max(self,arr,k):
+        # keep track of k elements
+        # we are having monotonic decreasing queue
+        # using decreasing to get max of window in constant time
 
         dq = deque()
         ans = []
@@ -28,6 +31,6 @@ if __name__ == "__main__":
 
     sol = Solution()
     arr = [1,3,-1,-3,5,3,2,1,6]
-    k = 3
+    k = 9
     ans = sol.sliding_window_max(arr,k)
     print(ans)

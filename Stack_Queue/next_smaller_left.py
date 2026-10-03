@@ -4,18 +4,11 @@ class Solution:
         st = []
         n = len(arr)
         ans = [-1] * n
-        st.append(arr[0])
-        for i in range(1,n):
-
-            if arr[i] > st[-1]:
+        for i in range(n):
+            while st and st[-1] >= arr[i]:
+                st.pop()
+            if st:
                 ans[i] = st[-1]
-                
-
-            else:
-                while st and st[-1] >= arr[i]:
-                    st.pop()
-                if st:
-                    ans[i] = st[-1]
 
             st.append(arr[i])
         
@@ -23,7 +16,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    arr = [5,4,3,2,1]
+    arr = [5,4,3,10,9]
     sol = Solution()
     ans = sol.next_smaller_element(arr)
     print(ans)
