@@ -44,6 +44,7 @@ class Solution(object):
 
         ans = []
 
+        print(mapp)
         # Process columns from left to right
         for col in sorted(mapp):
 
@@ -51,7 +52,7 @@ class Solution(object):
             # 1. row
             # 2. value
             mapp[col].sort()
-
+            print(mapp[col])
             column = []
 
             for row, value in mapp[col]:
