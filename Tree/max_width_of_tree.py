@@ -1,5 +1,6 @@
-# Definition for a binary tree node.
+
 from collections import deque
+
 class TreeNode(object):
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -11,33 +12,35 @@ class Solution(object):
     def widthOfTree(self, root):
         if root is None:
             return 0
-        
-        q = deque()
-        q.append([root,1])
-        ans = float('-inf')
+
+        q = deque([(root, 0)])
+        ans = 0
 
         while q:
-            # temp = []
-            min_index = 0
-            # max_index = 0
-            for i in range(len(q)):
-                top = q.popleft()
-                val = top[0]
-                idx = top[1]
-                ans = idx - min_index + 1
+            size = len(q)
+            min_index = q[0][1]
+
+            first = last = 0
+
+            for i in range(size):
+                node, idx = q.popleft()
+
+                # Normalize index to avoid unnecessarily large values
+                idx -= min_index
+
                 if i == 0:
-                    min_index = idx
-                # temp.append(top.val)
-                if val.left:
-                    new_idx = (2 * idx) - min_index
-                    q.append([val.left,new_idx])
-                if val.right:
-                    new_idx = (2 * idx + 1) - min_index
-                    q.append([val.right,new_idx])
-                
+                    first = idx
+                if i == size - 1:
+                    last = idx
+
+                if node.left:
+                    q.append((node.left, 2 * idx))
+                if node.right:
+                    q.append((node.right, 2 * idx + 1))
+
+            ans = max(ans, last - first + 1)
 
         return ans
-
 
 
 def main():
@@ -52,13 +55,13 @@ def main():
     a.left = b
     b.left = c
     c.left = d
+
     a.right = e
     e.right = f
     f.right = g
 
     sol = Solution()
-    ans = sol.widthOfTree(a)
-    print(ans)
+    print(sol.widthOfTree(a))
 
 
 if __name__ == "__main__":
